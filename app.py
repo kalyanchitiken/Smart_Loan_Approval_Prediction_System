@@ -3,6 +3,14 @@ import pandas as pd
 import pickle
 import matplotlib.pyplot as plt
 import seaborn as sns
+import sklearn.compose._column_transformer as ct
+
+# ---- FIX for sklearn _RemainderColsList error ----
+if not hasattr(ct, "_RemainderColsList"):
+    class _RemainderColsList(list):
+        pass
+    ct._RemainderColsList = _RemainderColsList
+# --------------------------------------------------
 
 # ----------------------------------
 # PAGE CONFIG
@@ -149,4 +157,3 @@ elif choice == "Prediction":
         The Random Forest model provides an accurate and transparent decision-support system 
         for loan evaluations, helping financial institutions make data-driven lending choices efficiently.
         """)
-
