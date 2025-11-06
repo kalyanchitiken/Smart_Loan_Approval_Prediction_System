@@ -11,6 +11,34 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import sklearn.compose._column_transformer as ct
 
+
+import os
+import shutil
+
+def clear_cache():
+    cache_dirs = [
+        "/root/.cache",
+        "/home/user/.cache",
+        "/tmp",
+        "/root/.huggingface",
+        "/root/.streamlit"
+    ]
+    
+    for folder in cache_dirs:
+        if os.path.exists(folder):
+            try:
+                shutil.rmtree(folder)
+                print(f"✅ Cleared cache folder: {folder}")
+            except Exception as e:
+                print(f"⚠️ Could not clear {folder}: {e}")
+
+# Clear cache before loading models or data
+clear_cache()
+
+
+
+
+
 # --- Patch for sklearn _RemainderColsList error ---
 if not hasattr(ct, "_RemainderColsList"):
     class _RemainderColsList(list):
