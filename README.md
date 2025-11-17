@@ -11,4 +11,4 @@ short_description: "Machine Learning + FastAPI Deployment"
 ---
 
 Check out the configuration reference at:
-https://huggingface.co/docs/hub/spaces-config-reference
+https://huggingface.co/spaces/Kalyancht/Loan-Approval-System
